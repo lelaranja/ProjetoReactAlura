@@ -1,9 +1,14 @@
+import Colaborador from '../Card'
 import './time.css'
 
 const Time = (props) => {
     return (
-        <section className="time" style={{ backgroundColor: props.corSecundaria }} >
+        //linha de baixo é para uma validação, se for <0, não aparece na tela
+        (props.colaboradores.length > 0) && <section className="time" style={{ backgroundColor: props.corSecundaria }} >
             <h3 style={{ borderColor: props.corPrimaria }}>{props.nome}</h3>
+            <div className='colaboradores'>
+                {props.colaboradores.map(colaborador => <Colaborador nome={colaborador.nome} cargo={colaborador.cargo} imagem={colaborador.imagem} />)}
+            </div>
         </section >
     )
 }
